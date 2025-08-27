@@ -1,0 +1,557 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables - Dark Theme */
+:root {
+  --background: #090909;
+  --foreground: #ebebeb;
+  --card: #101011;
+  --card-foreground: #ffffff;
+  --primary: #e85a4f;
+  --primary-foreground: #ffffff;
+  --secondary: #c3956b;
+  --secondary-foreground: #ffffff;
+  --muted: #404040;
+  --muted-foreground: #ababab;
+  --accent: #ebebeb;
+  --accent-foreground: #000000;
+  --border: #2b2b2b;
+  --input: #2b2b2b;
+  --ring: #e85a4f;
+  --font-sans: 'Inter', sans-serif;
+  --font-arabic: 'Noto Naskh Arabic', 'Arabic UI Text', serif;
+  --radius: 8px;
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.header {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.moon-icon {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.logo h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.session-info {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.calendar-icon {
+  font-size: 1rem;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+  background-color: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 72px;
+  z-index: 30;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  color: var(--foreground);
+}
+
+.tab-button.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tab-icon {
+  font-size: 1rem;
+}
+
+/* Main Content */
+.main-content {
+  padding: 1.5rem 0;
+}
+
+.content-section {
+  display: none;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.content-section.active {
+  display: block;
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: var(--muted-foreground);
+}
+
+/* Cards Container */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Card Base */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+/* Tasbih Card */
+.tasbih-card .card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.tasbih-info {
+  flex: 1;
+}
+
+.tasbih-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.arabic-text {
+  font-family: var(--font-arabic);
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.8;
+  direction: rtl;
+  text-align: right;
+}
+
+.transliteration {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+
+.meaning {
+  font-size: 0.875rem;
+  color: var(--foreground);
+}
+
+.tasbih-meta {
+  text-align: right;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.progress-section {
+  margin-bottom: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--muted);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 9999px;
+  transition: width 0.3s ease-in-out;
+}
+
+.counter-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.counter-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background-color: var(--muted);
+  color: var(--foreground);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.counter-button:hover {
+  transform: scale(1.05);
+  background-color: var(--border);
+}
+
+.counter-button.primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+
+.counter-button.primary:hover {
+  background-color: var(--primary);
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.counter-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.counter-value {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--primary);
+  width: 4rem;
+  text-align: center;
+}
+
+.session-info-box {
+  text-align: right;
+}
+
+.session-label {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.session-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+/* Dua Card */
+.dua-card .card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.dua-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.dua-source {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: 0.25rem 0.5rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.dua-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dua-card .arabic-text {
+  font-size: 1.25rem;
+}
+
+.dua-card .transliteration {
+  border-left: 2px solid var(--primary);
+  padding-left: 1rem;
+}
+
+/* Name Card */
+.name-card {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.name-card:hover {
+  box-shadow: 0 4px 12px rgba(232, 90, 79, 0.2);
+  border-color: var(--primary);
+}
+
+.name-card .card-content {
+  text-align: center;
+  padding: 1rem;
+}
+
+.name-number {
+  font-size: 0.875rem;
+  color: var(--secondary);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.name-card .arabic-text {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  direction: rtl;
+}
+
+.name-card .transliteration {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.name-card .meaning {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+/* Names Grid */
+.names-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  .names-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .names-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Search */
+.search-container {
+  margin-bottom: 1.5rem;
+}
+
+.search-box {
+  position: relative;
+  max-width: 24rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-foreground);
+  font-size: 1rem;
+}
+
+#names-search {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--input);
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
+
+#names-search::placeholder {
+  color: var(--muted-foreground);
+}
+
+#names-search:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(232, 90, 79, 0.2);
+}
+
+/* Load More Button */
+.load-more-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.load-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.load-more-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.load-more-btn.hidden {
+  display: none;
+}
+
+.chevron-icon {
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .cards-container {
+    gap: 1.5rem;
+  }
+  
+  .card-content {
+    padding: 1.5rem;
+  }
+  
+  .arabic-text {
+    font-size: 1.75rem;
+  }
+  
+  .dua-card .arabic-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* Utility classes */
+.hidden {
+  display: none !important;
+}
+
+/* Button icons using Unicode */
+.plus-icon::before {
+  content: "+";
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.minus-icon::before {
+  content: "−";
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Dark mode enhancements */
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Better contrast for dark theme */
+.counter-button:not(.primary) {
+  background-color: var(--muted);
+  border-color: var(--border);
+}
+
+.counter-button:not(.primary):hover {
+  background-color: var(--border);
+}

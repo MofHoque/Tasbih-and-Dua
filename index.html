@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasbih & Dua - Islamic Counter App</title>
+    <meta name="description" content="Islamic Tasbih and Dua app with interactive counters and trilingual content display. Track your dhikr, read duas, and explore the 99 names of Allah.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="moon-icon">🌙</span>
+                    <h1>Tasbih & Dua</h1>
+                </div>
+                <div class="session-info">
+                    <span class="calendar-icon">📅</span>
+                    Session Active
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab-button active" data-section="tasbih">
+                    <span class="tab-icon">🤲</span>
+                    Tasbih
+                </button>
+                <button class="tab-button" data-section="duas">
+                    <span class="tab-icon">🤲</span>
+                    Duas
+                </button>
+                <button class="tab-button" data-section="names">
+                    <span class="tab-icon">⭐</span>
+                    99 Names
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Tasbih Section -->
+        <section id="tasbih-section" class="content-section active">
+            <div class="section-header">
+                <h2>Tasbih Counters</h2>
+                <p>Track your dhikr with recommended counts and contexts</p>
+            </div>
+            <div id="tasbih-container" class="cards-container"></div>
+        </section>
+
+        <!-- Duas Section -->
+        <section id="duas-section" class="content-section">
+            <div class="section-header">
+                <h2>Duas (Supplications)</h2>
+                <p>Essential prayers from the Quran and Sunnah</p>
+            </div>
+            <div id="duas-container" class="cards-container"></div>
+        </section>
+
+        <!-- 99 Names Section -->
+        <section id="names-section" class="content-section">
+            <div class="section-header">
+                <h2>99 Beautiful Names of Allah</h2>
+                <p>Asma ul Husna - The Most Beautiful Names</p>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="names-search" placeholder="Search the Names...">
+                </div>
+            </div>
+            <div id="names-container" class="names-grid"></div>
+            <div id="load-more-container" class="load-more-container">
+                <button id="load-more-btn" class="load-more-btn">
+                    <span class="chevron-icon">⌄</span>
+                    Load More Names
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
